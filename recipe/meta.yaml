@@ -12,7 +12,7 @@ source:
   url: https://github.com/libarchive/libarchive/releases/download/v{{ version }}/libarchive-{{ version }}.tar.gz
   sha256: c676146577d989189940f1959d9e3980d28513d74eedfbc6b7f15ea45fe54ee2
   patches:
-    - patches/0001-Add-lib-to-CMAKE_FIND_LIBRARY_PREFIXES-for-lzma.patch
+    - patches/0001-Add-lib-to-CMAKE_FIND_LIBRARY_PREFIXES-for-lzma.patch  # [not win]
     - patches/0003-VC9-compatibility-test-for-BCryptDeriveKeyPBKDF2.patch
     - patches/0004-VC9-compatibility-define-BCRYPT_SUCCESS.patch
     - patches/0006-VC-openssl-define-inline-as-__inline.patch
@@ -77,6 +77,8 @@ about:
   license_family: BSD
   dev_url: https://github.com/libarchive/libarchive
   doc_url: https://github.com/libarchive/libarchive/wiki
+  doc_source_url: https://github.com/libarchive/libarchive/tree/master/doc
+  license_url: https://github.com/libarchive/libarchive/blob/master/COPYING
   license_file:
     - COPYING
     - static_deps_licenses/bzip2.txt
@@ -85,6 +87,11 @@ about:
     - static_deps_licenses/zstd.txt
     - static_deps_licenses/msinttypes.txt  # [win and py27]
     - static_deps_licenses/libiconv.txt    # [osx]
+  description: |
+    The libarchive project develops a portable, efficient 
+    C library that can read and write streaming archives in a variety of formats. 
+    It also includes implementations of the common tar, cpio, 
+    and zcat command-line tools that use the libarchive library.
 
 extra:
   recipe-maintainers:
