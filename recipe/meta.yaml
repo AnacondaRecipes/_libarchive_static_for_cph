@@ -58,6 +58,8 @@ test:
     # Verify headers are in place.
     - test -f "${PREFIX}/include/archive.h"            # [unix]
     - test -f "${PREFIX}/include/archive_entry.h"      # [unix]
+    - if not exist %LIBRARY_INC%\\archive.h        exit 1  # [win]
+    - if not exist %LIBRARY_INC%\\archive_entry.h  exit 1  # [win]
 
     # Verify libraries are in place.
     - test -f "${PREFIX}/lib/libarchive.a"             # [unix]
