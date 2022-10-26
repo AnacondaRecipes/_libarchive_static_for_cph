@@ -74,11 +74,11 @@ about:
   home: https://libarchive.org/
   summary: a static build of libarchive containing only conda-related parts
   license: BSD-2-Clause
-  license_file: COPYING
   license_family: BSD
   dev_url: https://github.com/libarchive/libarchive
   doc_url: https://github.com/libarchive/libarchive/wiki
   license_file:
+    - COPYING
     - static_deps_licenses/bzip2.txt
     - static_deps_licenses/libarchive.txt
     - static_deps_licenses/zlib.txt
