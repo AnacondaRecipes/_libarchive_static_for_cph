@@ -69,13 +69,16 @@ test:
     - test -f "${PREFIX}/lib/libarchive.a"             # [unix]
     - test -f "${PREFIX}/lib/libarchive_and_deps.a"    # [unix]
 
+    # Set locale for osx to prevent an error 'Failed to set default locale'
+    - export LANG=en_US.UTF-8  # [osx]
+    - export LC_ALL=$LANG      # [osx]
     # Check for commands
-    - bsdtar --version     # [unix or win64]
+    - bsdtar --version      # [unix or win64]
 
-    - pushd test-archives   # [unix or win64]
-    -   bsdtar -vxf hello_world.xar 2>&1 | rg "x hello_world"   # [unix or win64]
-    -   bsdtar -vxf archive.7z 2>&1 | rg "x 7zip-archive"       # [unix or win64]
-    -   bsdtar -vxf hello_world.tar.zst 2>&1 | rg "greets"      # [unix or win64]
+    - pushd test-archives   # [linux or win64]
+    -   bsdtar -vxf hello_world.xar 2>&1 | rg "x hello_world"   # [linux or win64]
+    -   bsdtar -vxf archive.7z 2>&1 | rg "x 7zip-archive"       # [linux or win64]
+    -   bsdtar -vxf hello_world.tar.zst 2>&1 | rg "greets"      # [linux or win64]
     - popd   # [unix or win64]
 
 about:
